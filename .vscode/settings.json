@@ -16,7 +16,7 @@
     "**/CVS": true
   },
   "files.autoSave": "off",
-  "workbench.colorTheme": "Community Material Theme Darker",
+  "workbench.colorTheme": "Material Theme Lighter",
   "terminal.integrated.gpuAcceleration": "canvas",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[python]": {
