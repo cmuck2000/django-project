@@ -20,11 +20,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = Env()  # reading .env file
 env.read_env()  # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "MY_SECRET_KEY"
-ALLOWED_HOSTS = "ALLOWED_HOSTS"
-
+development = "DEVELOPMENT", False
+if development:
+    ALLOWED_HOSTS = ["localhost"]
+else:
+    ALLOWED_HOSTS = "ALLOWED_HOSTS"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = development
 
 
 # Application definition
@@ -73,18 +76,20 @@ WSGI_APPLICATION = "django_todo.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
+if development:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
 
-DATABASES = {
-    "default": dj_database_url.parse(
-        "postgres://aweaxkegaxhuge:3e06ab1bcc4484051e63b2f97ed374cd018084614eea5952e5e2f74a71ad2e6d@ec2-52-30-67-143.eu-west-1.compute.amazonaws.com:5432/dbv0cfj9dn39gg"
-    )
-}
+else:
+    DATABASES = {
+        "default": dj_database_url.parse(
+            "postgres://aweaxkegaxhuge:3e06ab1bcc4484051e63b2f97ed374cd018084614eea5952e5e2f74a71ad2e6d@ec2-52-30-67-143.eu-west-1.compute.amazonaws.com:5432/dbv0cfj9dn39gg"
+        )
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
