@@ -24,7 +24,7 @@ SECRET_KEY = "MY_SCRET_KEY"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://can-you-believe-its-a-todolist.herokuapp.com/"]
+ALLOWED_HOSTS = ["https://can-you-believe-its-a-todolist.herokuapp.com"]
 
 
 # Application definition
