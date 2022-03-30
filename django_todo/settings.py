@@ -9,22 +9,22 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-from environ import Env
 from pathlib import Path
+from environ import Env
 import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = Env()  # reading .env file
 env.read_env()  # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "MY_SCRET_KEY"
+SECRET_KEY = "MY_SECRET_KEY"
+ALLOWED_HOSTS = "ALLOWED_HOSTS"
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ["can-you-believe-its-a-todolist.herokuapp.com"]
 
 
 # Application definition
