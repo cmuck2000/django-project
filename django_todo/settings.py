@@ -20,11 +20,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = Env()  # reading .env file
 env.read_env()  # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "MY_SECRET_KEY"
+ALLOWED_HOSTS = "ALLOWED_HOSTS"
 development = "DEVELOPMENT", False
-if development:
-    ALLOWED_HOSTS = ["localhost"]
-else:
-    ALLOWED_HOSTS = "ALLOWED_HOSTS"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = development
